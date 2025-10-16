@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mahna Collections</title>
+
+  <!-- Primary favicons -->
+  <link id="favicon" rel="icon" href="https://image2url.com/images/1760592233158-60758879-10cf-43b1-9aaf-80f625e6c776.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="https://image2url.com/images/1760592233158-60758879-10cf-43b1-9aaf-80f625e6c776.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="https://image2url.com/images/1760592233158-60758879-10cf-43b1-9aaf-80f625e6c776.png">
+
+  <!-- Optional SVG with PNG fallback -->
+  <link rel="icon" href="https://image2url.com/images/1760592233158-60758879-10cf-43b1-9aaf-80f625e6c776.png" type="image/svg+xml">
+  <link rel="alternate icon" href="https://image2url.com/images/1760592233158-60758879-10cf-43b1-9aaf-80f625e6c776.png" type="image/png">
+
+  <!-- Root favicon fallback (served at /favicon.ico) -->
+  <link rel="shortcut icon" href="favicon.ico?v=2" type="image/x-icon">
+
+  <meta name="theme-color" content="#111111">
+
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+  <div class="container header-inner">
+    <div class="brand">
+      <img src="https://image2url.com/images/1760592233158-60758879-10cf-43b1-9aaf-80f625e6c776.png" alt="Fashion" class="logo">
+      <a href="#home" class="brand-name">Mahna Collections</a>
+    </div>
+    <button class="hamburger" id="hamburgerBtn">☰</button>
+    <nav class="nav" id="mainNav">
+      <a href="#home" data-route>Home</a>
+      <a href="#catalog" data-route>Catalog</a>
+      <a href="#checkout" data-route>Checkout</a>
+      <a href="#login" data-route id="navLogin">Login</a>
+      <a href="#account" data-route id="navAccount" class="hidden">Account</a>
+      <button id="wishlistBtn">Wishlist (<span id="wishlistCount">0</span>)</button>
+      <button id="cartBtn">Cart (<span id="cartCount">0</span>)</button>
+    </nav>
+  </div>
+</header>
+
+
+  <main class="container">
+    <!-- Home -->
+    <section id="home" class="route">
+      <section class="hero">
+        <img src="https://marketplace.canva.com/EAFEH3mIUaM/1/0/1600w/canva-dark-grey-and-white-minimalist-new-fashion-collection-banner-nvaqxg-8iXI.jpg" alt="Festive Collection" class="hero-img">
+        <div class="hero-text">
+          <h1>New Season. New Styles.</h1>
+          <p>Discover premium fits for Women, Men, and Kids.</p>
+          <a href="#catalog" class="btn">Shop Now</a>
+        </div>
+      </section>
+
+      <section class="offers">
+        <div class="offer-card"><img src="https://img.freepik.com/premium-vector/summer-fashion-sale-banner-design-template_2239-1174.jpg" alt=""><div class="offer-body"><h3>Flat 40% Off</h3><p>Seasonal picks.</p></div></div>
+        <div class="offer-card"><img src="https://marketplace.canva.com/EAFYElY5EE4/1/0/800w/canva-brown-and-white-modern-fashion-banner-landscape-2uXtgbkdkec.jpg" alt=""><div class="offer-body"><h3>New Arrivals</h3><p>Trending styles.</p></div></div>
+        <div class="offer-card"><img src="https://decormatters-blog-uploads.s3.amazonaws.com/alinacocemelova_3f5c1fab1f.JPG" alt=""><div class="offer-body"><h3>Home & Living</h3><p>Cozy spaces.</p></div></div>
+      </section>
+    </section>
+
+    <!-- Catalog / Filters page -->
+    <section id="catalog" class="route hidden">
+      <div class="catalog">
+        <aside class="filters">
+          <h3>Filters</h3>
+          <div class="filter-group">
+            <label>Search</label>
+            <input id="search" class="search full" placeholder="Search products..." />
+          </div>
+          <div class="filter-group">
+            <label>Category</label>
+            <select id="filterCategory">
+              <option value="all">All</option>
+              <option value="women">Women</option>
+              <option value="men">Men</option>
+              <option value="kids">Kids</option>
+              <option value="home">Home</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Size</label>
+            <div class="chips">
+              <button class="chip" data-size="XS">XS</button>
+              <button class="chip" data-size="S">S</button>
+              <button class="chip" data-size="M">M</button>
+              <button class="chip" data-size="L">L</button>
+              <button class="chip" data-size="XL">XL</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label>Color</label>
+            <div class="chips">
+              <button class="chip" data-color="Black">Black</button>
+              <button class="chip" data-color="White">White</button>
+              <button class="chip" data-color="Blue">Blue</button>
+              <button class="chip" data-color="Red">Red</button>
+              <button class="chip" data-color="Green">Green</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label>Price</label>
+            <input type="range" min="0" max="4999" step="100" id="priceMin">
+            <input type="range" min="0" max="9999" step="100" id="priceMax" value="9999">
+            <div class="price-display">₹<span id="minVal">0</span> - ₹<span id="maxVal">9999</span></div>
+          </div>
+          <div class="filter-group">
+            <label>Sort</label>
+            <select id="sortBy">
+              <option value="relevance">Relevance</option>
+              <option value="priceAsc">Price: Low to High</option>
+              <option value="priceDesc">Price: High to Low</option>
+              <option value="ratingDesc">Rating</option>
+            </select>
+          </div>
+          <button id="clearFilters" class="btn-light full">Clear Filters</button>
+        </aside>
+        <section class="grid" id="productGrid"></section>
+      </div>
+    </section>
+
+    <!-- Checkout step: Cart Review -->
+    <section id="checkout" class="route hidden">
+      <h2>Checkout</h2>
+      <div class="card">
+        <div id="checkoutItems" class="pad"></div>
+        <div class="pad">
+          <div class="summary-line"><span>Subtotal</span><span id="ckSubtotal">₹0</span></div>
+          <div class="summary-line"><span>Discount</span><span id="ckDiscount">-₹0</span></div>
+          <div class="summary-line total"><span>Total</span><span id="ckTotal">₹0</span></div>
+          <div class="row gap">
+            <input id="ckCoupon" placeholder="Coupon (e.g. FASHION10)" />
+            <button id="ckApply" class="btn-light">Apply</button>
+          </div>
+          <div class="row gap right">
+            <a class="btn-light" href="#catalog">Continue Shopping</a>
+            <a class="btn" href="#shipping">Next: Shipping</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shipping Address -->
+    <section id="shipping" class="route hidden">
+      <h2>Shipping Address</h2>
+      <form id="addressForm" class="card pad">
+        <div class="grid-2">
+          <input id="fullName" required placeholder="Full name">
+          <input id="phone" required placeholder="Phone">
+        </div>
+        <input id="line1" required placeholder="Address line">
+        <div class="grid-3">
+          <input id="city" required placeholder="City">
+          <input id="state" required placeholder="State">
+          <input id="pin" required placeholder="PIN code">
+        </div>
+        <div class="row right gap">
+          <a class="btn-light" href="#checkout">Back</a>
+          <button type="submit" class="btn">Save & Continue</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Payment -->
+    <section id="payment" class="route hidden">
+      <h2>Payment</h2>
+      <div class="card pad">
+        <p>Select method (demo):</p>
+        <div class="row gap">
+          <label><input type="radio" name="paymethod" value="razorpay" checked> Razorpay (UPI/Cards)</label>
+          <label><input type="radio" name="paymethod" value="cod"> Cash on Delivery (demo)</label>
+        </div>
+        <div class="row right gap">
+          <a class="btn-light" href="#shipping">Back</a>
+          <button id="payNow" class="btn">Pay Now</button>
+        </div>
+        <p class="muted small">Note: Client-only test mode; real capture requires a server.</p>
+      </div>
+    </section>
+
+    <!-- Order Summary / Confirmation -->
+    <section id="summary" class="route hidden">
+      <h2>Order Summary</h2>
+      <div class="card">
+        <div class="pad">
+          <div id="summaryItems"></div>
+          <div class="summary-line total"><span>Total</span><span id="summaryTotal">₹0</span></div>
+        </div>
+        <div class="pad row right">
+          <a class="btn" href="#catalog">Continue Shopping</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Page (big green tick) -->
+    <section id="success" class="route hidden">
+      <div class="card pad" style="text-align:center; padding:40px;">
+        <div class="success-tick">✓</div>
+        <h2>Order Successful</h2>
+        <p class="muted">Thank you for shopping. Visit again!</p>
+        <a href="#catalog" class="btn" style="margin-top:12px;">Continue Shopping</a>
+      </div>
+    </section>
+
+    <!-- Login -->
+    <section id="login" class="route hidden">
+      <h2>Login</h2>
+      <form id="loginForm" class="card pad">
+        <input id="email" type="email" required placeholder="Email">
+        <input id="password" type="password" required placeholder="Password">
+        <div class="row space">
+          <label><input type="checkbox" id="remember"> Remember me</label>
+          <a href="#login">Forgot?</a>
+        </div>
+        <div class="row right gap">
+          <a class="btn-light" href="#home">Cancel</a>
+          <button type="submit" class="btn">Login</button>
+        </div>
+        <p class="muted small">Demo auth stores a token locally; replace with server auth later.</p>
+      </form>
+    </section>
+
+    <!-- Account (placeholder) -->
+    <section id="account" class="route hidden">
+      <h2>My Account</h2>
+      <div class="card pad">
+        <p id="accountEmail" class="muted"></p>
+        <div class="row gap">
+          <a class="btn-light" href="#summary">Orders</a>
+          <button id="logoutBtn" class="btn-light">Logout</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Drawer -->
+  <div id="cartDrawer" class="drawer hidden">
+    <div class="drawer-body">
+      <div class="drawer-header">
+        <h3>Shopping Cart</h3>
+        <button id="closeCart">×</button>
+      </div>
+      <div id="cartItems"></div>
+      <div class="drawer-footer">
+        <div class="totals">
+          <div><span>Subtotal</span><span id="subtotal">₹0</span></div>
+          <div><span>Discount</span><span id="discount">-₹0</span></div>
+          <div class="total"><span>Total</span><span id="total">₹0</span></div>
+        </div>
+        <div class="coupon">
+          <input id="couponCode" placeholder="Coupon (e.g. FASHION10)" />
+          <button id="applyCoupon" class="btn-light">Apply</button>
+        </div>
+        <a href="#checkout" id="goCheckout" class="btn full">Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wishlist Modal -->
+  <div id="wishlistModal" class="modal hidden">
+    <div class="modal-body">
+      <div class="modal-header">
+        <h3>Wishlist</h3>
+        <button id="closeWishlist">×</button>
+      </div>
+      <div id="wishlistItems"></div>
+    </div>
+  </div>
+
+  <!-- Product Detail Modal -->
+  <div id="pdpModal" class="modal hidden">
+    <div class="modal-body">
+      <div class="modal-header">
+        <h3 id="pdpTitle">Product</h3>
+        <button id="closePdp">×</button>
+      </div>
+      <div id="pdpContent"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><h4>Mahna Collections</h4><p>Mahna Collections — Fashion & modern styles for everyone.</p></div>
+      <div><h4>Help</h4><a href="#home">Shipping</a><a href="#home">Returns</a><a href="#home">Contact</a></div>
+      <div><h4>Follow</h4><a href="#home">Instagram</a><a href="#home">YouTube</a><a href="#home">X</a></div>
+    </div>
+    <div class="container small muted">© 2025 Mahna Collections</div>
+  </footer>
+
+  <!-- Toast container -->
+  <div id="toast" class="toast hidden">
+    <span class="toast-icon">✓</span>
+    <span id="toastMsg">Your order was placed successfully. Visit again!</span>
+  </div>
+   <script>
+    (function refreshFavicon(){
+      var links = document.querySelectorAll("link[rel*='icon']");
+      var ts = Date.now();
+      links.forEach(function(l){
+        try {
+          var url = new URL(l.href, location.href);
+          url.searchParams.set('v', ts.toString());
+          l.href = url.toString();
+        } catch (e) {}
+      });
+    })();
+  </script>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
